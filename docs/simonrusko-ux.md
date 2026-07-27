@@ -1,4 +1,4 @@
-# [Titulok — otázka alebo odpoveď, nie názov datasetu]
+# S&P 500 vs. Savings Account: A 10-Year Comparison
 
 *Simon Rusko — `simonrusko-ux`*
 

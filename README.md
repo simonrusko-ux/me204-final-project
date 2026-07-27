@@ -1,14 +1,8 @@
-# ME204 Final Project: [Your project title]
+# ME204 Final Project: S&P 500 vs. Savings Account: A 10-Year Comparison
 
-
-| GitHub username                           | LSE ID            |
-| ----------------------------------------- | ----------------- |
-| `[username]`                              | `[LSE ID]`        |
-| `[second username, if working in a pair]` | `[second LSE ID]` |
-
-
-Remove the unused row if you work alone.
-Replace every `[bracketed]` placeholder once you fill it in.
+| GitHub username  | LSE ID       |
+| ---------------- | ------------ |
+| `simonrusko-ux`  | `250085411`   |
 
 ## Overview
 
@@ -21,5 +15,3 @@ Replace every `[bracketed]` placeholder once you fill it in.
 ## How to reproduce
 
 [Tell your reader how to get keys, which python commands to run and any other things they need to know when replicating your work (imagine they are people with similar technical skills as yours)]
-
-TEST
