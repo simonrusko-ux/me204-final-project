@@ -30,3 +30,4 @@ do README, nie sem.]
 
 [Odpoveď na otázku z úvodu, poskladaná zo zistení vyššie. Plus čo dáta
 nedokážu povedať.]
+![flag of Slovakia](me204-final-project/docs/Flag-Slovakia.webp)
