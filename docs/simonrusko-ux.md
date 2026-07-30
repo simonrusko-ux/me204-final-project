@@ -14,8 +14,9 @@ savings account, what would the difference be today?**
 
 ## Finding 1 — $1,000 became $3,463, or $1,023
 
-<iframe src="finding1-growth.html" width="100%" height="560" frameborder="0"
-        style="border:0;" title="Value of $1,000 invested, 2016 to 2026"></iframe>
+<iframe src="finding1-growth.html" width="100%" height="525" frameborder="0"
+        scrolling="no" style="border:0;"
+        title="Value of $1,000 invested, 2016 to 2026"></iframe>
 
 <!-- If the interactive chart above does not load, replace the iframe with:
      ![Value of $1,000 invested](finding1-growth.png) -->
@@ -23,8 +24,9 @@ savings account, what would the difference be today?**
 
 ## Finding 2 — the market won 7 years out of 9, not 9 out of 9
 
-<iframe src="finding2-by-year.html" width="100%" height="710" frameborder="0"
-        style="border:0;" title="Return by calendar year, 2017 to 2025"></iframe>
+<iframe src="finding2-by-year.html" width="100%" height="675" frameborder="0"
+        scrolling="no" style="border:0;"
+        title="Return by calendar year, 2017 to 2025"></iframe>
 
 <!-- If the interactive chart above does not load, replace the iframe with:
      ![Return by calendar year](finding2-by-year.png) -->
