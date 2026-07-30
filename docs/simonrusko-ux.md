@@ -10,7 +10,13 @@ savings account, what would the difference be today?**
 
 ## Where the numbers come from
 
+Both sides of this comparison come from FRED, the public data service run by the
+Federal Reserve Bank of St. Louis. The market side is the S&P 500, an index that
+follows the share prices of the five hundred largest companies listed in the
+United States. The savings side is a national average interest rate - an average across the biggest banks, not the best rate on offer anywhere. 
 
+The comparison runs from August 2016 to July 2026, one hundred and twenty months.
+That is as far back as FRED's daily record of the S&P 500 goes. Everything here was downloaded on 22 July 2026 and is fixed to that date; FRED updates every day, so a later download would move the figures slightly.
 
 ## Finding 1 — $1,000 became $3,463, or $1,023
 
