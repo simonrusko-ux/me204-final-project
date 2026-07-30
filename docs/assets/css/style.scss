@@ -159,14 +159,22 @@ body {
 /* The charts arrive as iframes exported by NB03. They already carry their own
    title, subtitle and source line, so they need no frame or caption here -
    only room to breathe and the freedom to fill the column. */
-.markdown-body > iframe,
-.markdown-body > p > img,
-.markdown-body > img {
+/* No height here on purpose: a CSS height would override the height attribute
+   each iframe carries in the markdown, collapsing the frame to the browser
+   default and leaving the chart to scroll inside a 150px box. */
+.markdown-body > iframe {
   display: block;
   width: 100%;
   max-width: 100%;       /* opt out of the prose measure: use the full page */
-  height: auto;
   border: 0;
+  margin: 2.5rem auto 3rem;
+}
+
+.markdown-body > img,
+.markdown-body > p > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
   margin: 2.5rem auto 3rem;
 }
 
