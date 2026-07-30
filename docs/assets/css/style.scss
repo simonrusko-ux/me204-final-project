@@ -44,6 +44,7 @@ body {
   max-width: 54rem;
   margin: 0 auto;
   padding: 1.75rem 2rem 0;
+  text-align: center;
 }
 
 .masthead a {
@@ -73,6 +74,7 @@ body {
   max-width: 68rem;
   margin: 0 auto;
   padding: 0 2rem 6rem;
+  text-align: center;
 }
 
 .markdown-body > * {
@@ -109,7 +111,7 @@ body {
   width: 3.5rem;
   height: 5px;
   background: var(--market);
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
 }
 
 .markdown-body h2 {
@@ -125,7 +127,7 @@ body {
   width: 2.5rem;
   height: 2px;
   background: var(--rule);
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem;
 }
 
 .markdown-body h3 {
@@ -158,9 +160,11 @@ body {
   font-size: 1.35rem;
   line-height: 1.42;
   color: var(--ink);
-  border-left: 3px solid var(--market);
-  padding-left: 1.25rem;
-  margin: 0.5rem 0 0.5rem;
+  border-top: 2px solid var(--market);
+  border-bottom: 2px solid var(--market);
+  padding: 1.25rem 0;
+  margin: 1.5rem auto;
+  max-width: 40rem;
 }
 
 .markdown-body strong { font-weight: 650; color: var(--ink); }
@@ -178,18 +182,25 @@ body {
   text-decoration-color: var(--claret);
 }
 
-.markdown-body ul { padding-left: 1.1rem; margin-bottom: 1.5rem; }
-.markdown-body li { margin-bottom: 0.75rem; padding-left: 0.35rem; }
+.markdown-body ul {
+  list-style-position: inside;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+.markdown-body li { margin-bottom: 0.75rem; }
 .markdown-body li::marker { color: var(--market); }
 
 .markdown-body blockquote {
-  border-left: 3px solid var(--market);
+  border-left: 0;
+  border-top: 2px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
   background: transparent;
   color: var(--ink);
   font-family: var(--serif);
   font-size: 1.15rem;
-  padding: 0.25rem 0 0.25rem 1.25rem;
+  padding: 1rem 0;
   margin: 2rem auto;
+  max-width: 40rem;
 }
 
 .markdown-body code {
