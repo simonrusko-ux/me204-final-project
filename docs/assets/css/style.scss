@@ -36,6 +36,28 @@ body {
 
 ::selection { background: rgba(15, 84, 153, 0.14); }
 
+/* --- Masthead ------------------------------------------------------------
+   The site's own name, set small and quiet in the top-left corner so it never
+   competes with the article title below it. */
+
+.masthead {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 1.75rem 2rem 0;
+}
+
+.masthead a {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.masthead a:hover { color: var(--market); }
+
 /* --- Measure -------------------------------------------------------------
    Two widths, not one. The page is wide enough for the charts to be read
    properly, while the prose keeps a measure short enough to scan without the
@@ -223,6 +245,7 @@ body {
 /* --- Narrow screens ------------------------------------------------------ */
 
 @media (max-width: 40rem) {
+  .masthead { padding: 1.25rem 1.25rem 0; }
   .markdown-body { font-size: 16.5px; padding: 0 1.25rem 4rem; }
   .markdown-body > * { max-width: 100%; }
   .markdown-body h1 { font-size: 2.1rem; margin-top: 2.5rem; }
