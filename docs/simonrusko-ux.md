@@ -30,7 +30,7 @@ That is as far back as FRED's daily record of the S&P 500 goes. Everything here 
 
 ## Finding 2 — the market won 7 years out of 9, not 9 out of 9
 
-<iframe src="finding2-by-year.html" width="100%" height="675" frameborder="0"
+<iframe src="finding2-by-year.html" width="100%" height="565" frameborder="0"
         scrolling="no" style="border:0;"
         title="Return by calendar year, 2017 to 2025"></iframe>
 
