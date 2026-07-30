@@ -13,7 +13,8 @@
 
 :root {
   --paper:  #fffaf3;   /* warm off-white, the chart background   */
-  --ink:    #16232e;   /* headings and body text                 */
+  --ink:    #16232e;   /* headings                               */
+  --body:   #2c3a45;   /* running text, a shade softer than ink  */
   --muted:  #6b6459;   /* subtitles, captions, source lines      */
   --rule:   #e5ded4;   /* hairlines and grid                     */
   --market: #0f5499;   /* S&P 500 series, and every link         */
@@ -23,28 +24,33 @@
   --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
   background: var(--paper);
-  color: var(--ink);
+  color: var(--body);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Primer wraps the markdown in .markdown-body and styles it heavily; these
-   rules replace that styling rather than sit on top of it. */
-/* Two widths, not one. The page is wide enough for the charts to be read
+::selection { background: rgba(15, 84, 153, 0.14); }
+
+/* --- Measure -------------------------------------------------------------
+   Two widths, not one. The page is wide enough for the charts to be read
    properly, while the prose keeps a measure short enough to scan without the
    eye losing its place on the way back to the left margin. Every direct child
-   is centred at the narrow measure by default; the figures below opt out. */
+   is centred at the narrow measure by default; the figures opt out below. */
+
 .markdown-body {
   background: transparent;
-  color: var(--ink);
+  color: var(--body);
   font-family: var(--sans);
   font-size: 17.5px;
-  line-height: 1.65;
+  line-height: 1.68;
   max-width: 68rem;
   margin: 0 auto;
-  padding: 0 2rem 5rem;
+  padding: 0 2rem 6rem;
 }
 
 .markdown-body > * {
@@ -53,10 +59,12 @@ body {
   margin-right: auto;
 }
 
-/* --- Headings ------------------------------------------------------------ */
+/* --- Headings ------------------------------------------------------------
+   Primer underlines h1 and h2 with a full-width border. This design uses short
+   rules instead: a coloured bar above the title, a neutral one above each
+   section. Same gesture at two weights, which is what holds the page together
+   with the charts - they carry the identical bar in their top-left corner. */
 
-/* Primer underlines h1 and h2 with a full-width border. The design uses a
-   short accent bar and generous space instead, matching the charts. */
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3 {
@@ -64,48 +72,74 @@ body {
   font-weight: 600;
   color: var(--ink);
   border-bottom: 0;
-  letter-spacing: -0.01em;
 }
 
 .markdown-body h1 {
-  font-size: 2.4rem;
-  line-height: 1.2;
-  margin: 3.5rem 0 0.75rem;
+  font-size: 3rem;
+  line-height: 1.14;
+  letter-spacing: -0.022em;
+  margin: 4rem 0 1rem;
 }
 
-/* The same accent bar that sits in the top-left corner of every chart. */
 .markdown-body h1::before {
   content: "";
   display: block;
-  width: 3rem;
+  width: 3.5rem;
   height: 5px;
   background: var(--market);
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .markdown-body h2 {
-  font-size: 1.5rem;
-  margin: 3.25rem 0 0.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--rule);
+  font-size: 1.6rem;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+  margin: 4rem 0 1rem;
+}
+
+.markdown-body h2::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--rule);
+  margin-bottom: 1.5rem;
 }
 
 .markdown-body h3 {
   font-size: 1.2rem;
-  margin: 2rem 0 0.5rem;
+  margin: 2.5rem 0 0.5rem;
 }
 
-/* The byline directly under the title, and any lone emphasised paragraph. */
+/* The byline sitting directly under the title. */
 .markdown-body h1 + p {
   font-family: var(--sans);
-  font-size: 0.95rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
   color: var(--muted);
   margin-top: 0;
 }
 
-/* --- Body --------------------------------------------------------------- */
+.markdown-body h1 + p em { font-style: normal; }
 
-.markdown-body p { margin: 0 0 1.15rem; }
+/* --- Body ---------------------------------------------------------------- */
+
+.markdown-body p { margin: 0 0 1.25rem; }
+
+/* A paragraph that is entirely bold is the standing question, not emphasis:
+   set it as a pull quote in the heading face. */
+.markdown-body p > strong:only-child {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.35rem;
+  line-height: 1.42;
+  color: var(--ink);
+  border-left: 3px solid var(--market);
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 0.5rem;
+}
 
 .markdown-body strong { font-weight: 650; color: var(--ink); }
 
@@ -113,61 +147,69 @@ body {
   color: var(--market);
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(15, 84, 153, 0.35);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
-.markdown-body a:hover { color: var(--claret); }
+.markdown-body a:hover {
+  color: var(--claret);
+  text-decoration-color: var(--claret);
+}
 
-.markdown-body ul { padding-left: 1.15rem; }
-.markdown-body li { margin-bottom: 0.6rem; }
-.markdown-body li::marker { color: var(--muted); }
+.markdown-body ul { padding-left: 1.1rem; margin-bottom: 1.5rem; }
+.markdown-body li { margin-bottom: 0.75rem; padding-left: 0.35rem; }
+.markdown-body li::marker { color: var(--market); }
 
 .markdown-body blockquote {
   border-left: 3px solid var(--market);
   background: transparent;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.1rem;
-  padding: 0.25rem 0 0.25rem 1.15rem;
-  margin: 1.75rem 0;
+  font-size: 1.15rem;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  margin: 2rem 0;
 }
 
 .markdown-body code {
   background: rgba(153, 15, 61, 0.07);
   color: var(--claret);
-  font-size: 0.87em;
-  padding: 0.15em 0.35em;
+  font-size: 0.85em;
+  padding: 0.15em 0.4em;
   border-radius: 3px;
 }
 
+/* --- Separators ---------------------------------------------------------- */
+
+/* A short centred rule rather than a line across the page: it closes the
+   article without competing with the section rules above each heading. */
 .markdown-body hr {
   border: 0;
-  border-top: 1px solid var(--rule);
   background: none;
   height: 0;
-  margin: 3rem 0 1.5rem;
+  border-top: 2px solid var(--rule);
+  width: 4rem;
+  margin: 4.5rem auto 2rem;
 }
 
 /* The closing source note. */
 .markdown-body hr + p {
   font-size: 0.85rem;
+  line-height: 1.6;
   color: var(--muted);
-  line-height: 1.55;
+  text-align: center;
 }
 
-/* --- Figures ------------------------------------------------------------- */
-
-/* The charts arrive as iframes exported by NB03. They already carry their own
-   title, subtitle and source line, so they need no frame or caption here -
-   only room to breathe and the freedom to fill the column. */
-/* No height here on purpose: a CSS height would override the height attribute
-   each iframe carries in the markdown, collapsing the frame to the browser
+/* --- Figures -------------------------------------------------------------
+   No height on the iframe on purpose: a CSS height would override the height
+   attribute each frame carries in the markdown, collapsing it to the browser
    default and leaving the chart to scroll inside a 150px box. */
+
 .markdown-body > iframe {
   display: block;
   width: 100%;
   max-width: 100%;       /* opt out of the prose measure: use the full page */
   border: 0;
-  margin: 2.5rem auto 3rem;
+  margin: 2.75rem auto 3.25rem;
 }
 
 .markdown-body > img,
@@ -175,14 +217,15 @@ body {
   display: block;
   max-width: 100%;
   height: auto;
-  margin: 2.5rem auto 3rem;
+  margin: 2.75rem auto 3.25rem;
 }
 
 /* --- Narrow screens ------------------------------------------------------ */
 
 @media (max-width: 40rem) {
-  .markdown-body { font-size: 16px; padding: 0 1rem 3rem; }
+  .markdown-body { font-size: 16.5px; padding: 0 1.25rem 4rem; }
   .markdown-body > * { max-width: 100%; }
-  .markdown-body h1 { font-size: 1.9rem; margin-top: 2.5rem; }
-  .markdown-body h2 { font-size: 1.3rem; }
+  .markdown-body h1 { font-size: 2.1rem; margin-top: 2.5rem; }
+  .markdown-body h2 { font-size: 1.35rem; margin-top: 3rem; }
+  .markdown-body p > strong:only-child { font-size: 1.15rem; }
 }
