@@ -1,0 +1,167 @@
+---
+# The empty front matter is required: it tells Jekyll to process this file
+# rather than copy it through untouched.
+---
+
+@import "{{ site.theme }}";
+
+/* ---------------------------------------------------------------------------
+   The palette and type below are the same ones NB03 registers in its plotly
+   template, so the page and the charts inside it are one design rather than
+   two. Change a value here and the matching constant in NB03 must change too.
+   --------------------------------------------------------------------------- */
+
+:root {
+  --paper:  #fffaf3;   /* warm off-white, the chart background   */
+  --ink:    #16232e;   /* headings and body text                 */
+  --muted:  #6b6459;   /* subtitles, captions, source lines      */
+  --rule:   #e5ded4;   /* hairlines and grid                     */
+  --market: #0f5499;   /* S&P 500 series, and every link         */
+  --claret: #990f3d;   /* savings series                         */
+
+  --serif: Georgia, "Times New Roman", serif;
+  --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Primer wraps the markdown in .markdown-body and styles it heavily; these
+   rules replace that styling rather than sit on top of it. */
+.markdown-body {
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  max-width: 46rem;      /* ~72 characters: a comfortable reading measure */
+  margin: 0 auto;
+  padding: 0 1.25rem 5rem;
+}
+
+/* --- Headings ------------------------------------------------------------ */
+
+/* Primer underlines h1 and h2 with a full-width border. The design uses a
+   short accent bar and generous space instead, matching the charts. */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 0;
+  letter-spacing: -0.01em;
+}
+
+.markdown-body h1 {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  margin: 3.5rem 0 0.75rem;
+}
+
+/* The same accent bar that sits in the top-left corner of every chart. */
+.markdown-body h1::before {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 5px;
+  background: var(--market);
+  margin-bottom: 1.75rem;
+}
+
+.markdown-body h2 {
+  font-size: 1.5rem;
+  margin: 3.25rem 0 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.markdown-body h3 {
+  font-size: 1.2rem;
+  margin: 2rem 0 0.5rem;
+}
+
+/* The byline directly under the title, and any lone emphasised paragraph. */
+.markdown-body h1 + p {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: 0;
+}
+
+/* --- Body --------------------------------------------------------------- */
+
+.markdown-body p { margin: 0 0 1.15rem; }
+
+.markdown-body strong { font-weight: 650; color: var(--ink); }
+
+.markdown-body a {
+  color: var(--market);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.markdown-body a:hover { color: var(--claret); }
+
+.markdown-body ul { padding-left: 1.15rem; }
+.markdown-body li { margin-bottom: 0.6rem; }
+.markdown-body li::marker { color: var(--muted); }
+
+.markdown-body blockquote {
+  border-left: 3px solid var(--market);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  padding: 0.25rem 0 0.25rem 1.15rem;
+  margin: 1.75rem 0;
+}
+
+.markdown-body code {
+  background: rgba(153, 15, 61, 0.07);
+  color: var(--claret);
+  font-size: 0.87em;
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+}
+
+.markdown-body hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  background: none;
+  height: 0;
+  margin: 3rem 0 1.5rem;
+}
+
+/* The closing source note. */
+.markdown-body hr + p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* --- Figures ------------------------------------------------------------- */
+
+/* The charts arrive as iframes exported by NB03. They already carry their own
+   title, subtitle and source line, so they need no frame or caption here -
+   only room to breathe and the freedom to fill the column. */
+.markdown-body iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  margin: 2rem 0 2.5rem;
+}
+
+.markdown-body img { max-width: 100%; height: auto; }
+
+/* --- Narrow screens ------------------------------------------------------ */
+
+@media (max-width: 40rem) {
+  .markdown-body { font-size: 16px; padding: 0 1rem 3rem; }
+  .markdown-body h1 { font-size: 1.9rem; margin-top: 2.5rem; }
+  .markdown-body h2 { font-size: 1.3rem; }
+}

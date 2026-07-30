@@ -1,0 +1,14 @@
+# GitHub Pages build settings for the public page in docs/.
+#
+# Primer is used only as a base: it supplies a sane HTML skeleton and nothing
+# visual that survives. Everything the reader sees is set in
+# assets/css/style.scss, which matches the palette and typography of the charts
+# exported by NB03, so the page and the figures read as one document.
+#
+# site.title is deliberately unset: the Primer layout injects it as an extra <h1>
+# above the content, which would duplicate the heading already in the markdown.
+
+theme: jekyll-theme-primer
+description: >-
+  A ten-year comparison of the S&P 500 against a US savings account,
+  built from FRED data. ME204 final project.
