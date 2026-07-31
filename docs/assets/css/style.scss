@@ -196,15 +196,18 @@ body {
 .markdown-body mark.figure {
   background-image: linear-gradient(var(--highlight), var(--highlight));
   background-repeat: no-repeat;
-  background-position: 0 82%;
-  background-size: 0% 0.66em;
-  padding: 0 0.1em;
+  /* Tall enough to clear the ascenders and descenders, and centred on the line,
+     so the stroke encloses the words instead of running under them. */
+  background-position: 0 50%;
+  background-size: 0% 1.3em;
+  padding: 0.06em 0.16em;
+  border-radius: 2px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   transition: background-size 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.markdown-body .figure.is-lit { background-size: 100% 0.66em; }
+.markdown-body .figure.is-lit { background-size: 100% 1.3em; }
 
 /* Readers who ask for less motion still get the highlight, just not the wipe. */
 @media (prefers-reduced-motion: reduce) {
