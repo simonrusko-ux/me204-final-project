@@ -69,6 +69,13 @@ However, none of this predicts the future. It's just what happened to money left
 
 ## What this comparison cannot tell you
 
+This tracks a single payment, not monthly saving. Everything above follows $1,000
+put in once and left alone. Pay in every month and you'd end up with more — but
+mostly because you put more in, not because the return was better. That's a
+different question this page doesn't answer.
+
+The market figure is price-only, so it misses dividends — historically another 1.5–2% a year. Nothing is net of tax, fees or inflation either — $3,463 in 2026 doesn't buy what it did in 2016.
+
 ---
 
 *Data: [FRED](https://fred.stlouisfed.org/), series `SP500` and `BRMSA0104`,
