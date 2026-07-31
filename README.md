@@ -8,32 +8,25 @@
 
 If money had gone into the S&P 500 ten years ago instead of into a savings
 account, what would the difference be today? The pipeline collects two FRED
-series, puts them on a common monthly footing, and compares what $1,000 became in
-each. The answer for a general reader is at
+series, and compares what $1,000 became in each. 
+
+The answer for a general reader:
 [simonrusko-ux.github.io/me204-final-project](https://simonrusko-ux.github.io/me204-final-project/simonrusko-ux).
 
 ## Data sources
 
 Both series come from the **FRED API** (Federal Reserve Bank of St. Louis),
-endpoint `https://api.stlouisfed.org/fred/series/observations`. No supplementary
-or manually collected data is used.
+endpoint `https://api.stlouisfed.org/fred/series/observations`. 
 
 | Series | What it is | Frequency | Units |
 | --- | --- | --- | --- |
 | `SP500` | S&P 500 index, price only | daily, business days | index level |
 | `BRMSA0104` | Bankrate national average savings APY | weekly | percent per year |
 
-Two things about this pair drive the whole of NB02. They arrive at different
-frequencies, and they are different kinds of number: one is a price level, the
-other is already a rate. `SP500` is also the shorter series, so it sets the raw
-window at **2016-07-25 to 2026-07-22**. Those dates are hard-coded in NB01 rather
-than derived from today, so that reruns keep matching the figures on the website.
-
-The returns themselves run **August 2016 to July 2026, 120 months per series**.
-July 2016 is not a return: it is only the base month the first S&P return is
-measured against, and it drops out of the table. The savings series has no such
-base month, so its July 2016 row is dropped in NB02 to keep both series starting
-in the same month.
+They both arrive at different frequencies, and they are different kinds of number: 
+one is a price level, the other is already a rate. `SP500` is also the shorter series,
+so it sets the raw window at **2016-07-25 to 2026-07-22**. Those dates are hard-coded in
+NB01 rather than derived from today, so that reruns keep matching the figures on the website.
 
 ## How to reproduce
 
@@ -46,9 +39,9 @@ is not part of this repository.
 cp .env.example .env      # then edit, setting FRED_API_KEY
 ```
 
-**Environment.** Built and run on **Python 3.14.2**. There is no
-`requirements.txt`; the five third-party packages and the versions actually used
-are:
+**Environment.** Built and run on **Python 3.14.2**. 
+
+**Packages** 
 
 ```bash
 pip install requests==2.33.1 pandas==3.0.2 plotly==6.9.0 \
@@ -104,4 +97,4 @@ GitHub Pages from `main` → `/docs`.
 
 NB01 and NB02 are Python scripts rather than Jupyter notebooks, so this project
 uses a `scripts/` folder instead of the `notebooks/` folder given in the brief.
-File names keep the `NB` prefix, which numbers the pipeline stage.
+File names keep the `NB` prefix.
