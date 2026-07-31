@@ -61,6 +61,10 @@ and **28.30%**, while the savings account's best year was **0.52%**.
 
 ## What it means
 
+Over ten years, $1,000 in the market became $3,463. In a savings account, $1,023.
+The market got you there, but made you sit through a ~20% fall and a sharper drop in 2020. The savings account never fell. <mark>That steadiness is what it was selling — and it cost $2,440.</mark>
+
+However, none of this predicts the future. It's just what happened to money left alone in each place — one of which most people already have.
 
 
 ## What this comparison cannot tell you
