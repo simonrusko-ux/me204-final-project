@@ -64,11 +64,6 @@ and `pathlib` — nothing to install.
 NB03 is a notebook and is opened from `scripts/`, which is why its paths start
 `../data/` while the scripts' paths do not.
 
-```bash
-python scripts/NB01-Data-Collection.py
-python scripts/NB02-Data-Transformation.py
-# then open scripts/NB03-simonrusko-ux-Data-Analysis.ipynb and Run All
-```
 
 | File | Reads | Does | Writes |
 | --- | --- | --- | --- |
@@ -76,18 +71,6 @@ python scripts/NB02-Data-Transformation.py
 | `scripts/NB02-Data-Transformation.py` | `data/raw/*.json` | drops FRED's `"."` missing markers, averages each series by month, converts both to a monthly return in percent | `data/processed/monthly_returns.csv` |
 | `scripts/NB03-simonrusko-ux-Data-Analysis.ipynb` | `data/processed/monthly_returns.csv` | compounds the returns, compares by calendar year, builds the two charts | `docs/finding1-growth.{html,png}`, `docs/finding2-by-year.{html,png}` |
 
-`monthly_returns.csv` holds 240 rows. **One row is one series in one month**, and
-`return_pct` is that month's return in percent for both series — the S&P figure
-from the change in the index, the savings figure from the annual yield divided by
-twelve.
-
-Both boundary months are incomplete in the raw data, and the two series meet them
-differently. The S&P average for July 2016 rests on 5 trading days rather than the
-usual 21, so the first return, August 2016, is measured against a short base; July
-2026 rests on 15 days, because the raw window stops on the 22nd. The savings
-series is weekly, so its July 2026 holds the usual four observations and is not
-short at all. The effect is confined to the first and last of 120 months and no
-adjustment is made for it.
 
 Rerunning NB03 overwrites the four chart files under `docs/`, which is how the
 published page is kept in step with the analysis. The site itself is served by
