@@ -25,9 +25,15 @@ or manually collected data is used.
 
 Two things about this pair drive the whole of NB02. They arrive at different
 frequencies, and they are different kinds of number: one is a price level, the
-other is already a rate. `SP500` is also the shorter series, so it sets the
+other is already a rate. `SP500` is also the shorter series, so it sets the raw
 window at **2016-07-25 to 2026-07-22**. Those dates are hard-coded in NB01 rather
 than derived from today, so that reruns keep matching the figures on the website.
+
+The returns themselves run **August 2016 to July 2026, 120 months per series**.
+July 2016 is not a return: it is only the base month the first S&P return is
+measured against, and it drops out of the table. The savings series has no such
+base month, so its July 2016 row is dropped in NB02 to keep both series starting
+in the same month.
 
 ## How to reproduce
 
@@ -40,14 +46,26 @@ is not part of this repository.
 cp .env.example .env      # then edit, setting FRED_API_KEY
 ```
 
-**Environment.** Python 3.14, with:
+**Environment.** Built and run on **Python 3.14.2**. There is no
+`requirements.txt`; the five third-party packages and the versions actually used
+are:
 
 ```bash
-pip install requests pandas plotly python-dotenv kaleido
+pip install requests==2.33.1 pandas==3.0.2 plotly==6.9.0 \
+            python-dotenv==1.2.2 kaleido==1.3.0
 ```
 
-`kaleido` is only needed for the PNG export at the end of NB03; everything else
-runs without it.
+| Package | Version | Used for |
+| --- | --- | --- |
+| `requests` | 2.33.1 | the FRED API calls in NB01 |
+| `pandas` | 3.0.2 | every table operation in NB02 and NB03 |
+| `plotly` | 6.9.0 | both charts, and the HTML written into `docs/` |
+| `python-dotenv` | 1.2.2 | reading `FRED_API_KEY` out of `.env` |
+| `kaleido` | 1.3.0 | the PNG export only |
+
+`kaleido` is needed only for the PNG export at the end of NB03; everything else
+runs without it. From the standard library the project uses `json`, `os`, `time`
+and `pathlib` — nothing to install.
 
 **Run the files in this order.** NB01 and NB02 are run from the repository root.
 NB03 is a notebook and is opened from `scripts/`, which is why its paths start
@@ -69,6 +87,14 @@ python scripts/NB02-Data-Transformation.py
 `return_pct` is that month's return in percent for both series — the S&P figure
 from the change in the index, the savings figure from the annual yield divided by
 twelve.
+
+Both boundary months are incomplete in the raw data, and the two series meet them
+differently. The S&P average for July 2016 rests on 5 trading days rather than the
+usual 21, so the first return, August 2016, is measured against a short base; July
+2026 rests on 15 days, because the raw window stops on the 22nd. The savings
+series is weekly, so its July 2026 holds the usual four observations and is not
+short at all. The effect is confined to the first and last of 120 months and no
+adjustment is made for it.
 
 Rerunning NB03 overwrites the four chart files under `docs/`, which is how the
 published page is kept in step with the analysis. The site itself is served by
