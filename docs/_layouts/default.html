@@ -21,5 +21,43 @@
     {{ content }}
   </main>
 
+  <!-- Marks every bold figure in the text and lights it as it scrolls into
+       view. Doing it here rather than in the markdown keeps the writing free of
+       markup, and means a figure added later is picked up automatically. -->
+  <script>
+  (function () {
+    // A run of digits, optionally with a currency sign or a percent sign.
+    var isFigure = function (text) {
+      return /^[$£€]?\d[\d.,]*\s*%?$/.test(text.trim());
+    };
+
+    var marks = [];
+    document.querySelectorAll('.markdown-body strong').forEach(function (el) {
+      var p = el.parentElement;
+      // Skip the standing question, which is a whole paragraph set in bold.
+      if (p.tagName === 'P' && p.textContent.trim() === el.textContent.trim()) return;
+      if (!isFigure(el.textContent)) return;
+      el.classList.add('figure');
+      marks.push(el);
+    });
+
+    // Without IntersectionObserver, show the highlights rather than nothing.
+    if (!('IntersectionObserver' in window)) {
+      marks.forEach(function (el) { el.classList.add('is-lit'); });
+      return;
+    }
+
+    var seen = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-lit');
+        obs.unobserve(entry.target);   // light once; do not flicker on scroll back
+      });
+    }, { rootMargin: '0px 0px -20% 0px', threshold: 0.9 });
+
+    marks.forEach(function (el) { seen.observe(el); });
+  }());
+  </script>
+
 </body>
 </html>

@@ -23,6 +23,19 @@ The comparison runs from August 2016 to July 2026, one hundred and twenty months
 <!-- If the interactive chart above does not load, replace the iframe with:
      ![Value of $1,000 invested](finding1-growth.png) -->
 
+$1,000 put into the S&P 500 in August 2016 was worth **$3,463** ten years later.
+The same $1,000 left in a savings account was worth **$1,023**. The difference is
+substantial: **$2,440** in total. The savings rate spent most of the decade
+between 0.06% and 0.11% a year — a return that rounds to nothing once you have
+waited ten years for it — while the S&P 500 kept compounding. There were sharp
+falls along the way, in 2020 during the Covid-19 crash and again in the 2022
+drawdown, but the market still finished far ahead of the savings account.
+
+However, those falls were not small. The $1,000 stood at $1,511 in February 2020 
+and at $1,223 a month later, and it did not climb back above that level until August.
+From a peak of $2,155 in December 2021 it slid to $1,717 by October 2022 — a
+fifth of its value — and stayed down for most of a year. The savings line, by
+contrast, did not fall in a single month out of a hundred and twenty.
 
 ## Finding 2 — the market won 7 years out of 9, not 9 out of 9
 

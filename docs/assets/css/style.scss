@@ -19,6 +19,7 @@
   --rule:   #e5ded4;   /* hairlines and grid                     */
   --market: #0f5499;   /* S&P 500 series, and every link         */
   --claret: #990f3d;   /* savings series                         */
+  --highlight: rgba(255, 204, 77, 0.62);   /* marker pen over the figures */
 
   --serif: Georgia, "Times New Roman", serif;
   --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -164,6 +165,31 @@ body {
 }
 
 .markdown-body strong { font-weight: 650; color: var(--ink); }
+
+/* --- Figures in the text -------------------------------------------------
+   Every bold number gets a marker-pen stroke that wipes in from the left as it
+   scrolls into view. The class is added by the script in the layout, not typed
+   into the markdown, so the writing stays plain and no figure gets missed.
+
+   The stroke is a background image rather than a highlight colour so its width
+   can be animated: background-size goes from 0% to 100%, which reads as a hand
+   drawing the line rather than a box switching on. */
+
+.markdown-body strong.figure {
+  background-image: linear-gradient(var(--highlight), var(--highlight));
+  background-repeat: no-repeat;
+  background-position: 0 82%;
+  background-size: 0% 0.66em;
+  padding: 0 0.1em;
+  transition: background-size 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.markdown-body strong.figure.is-lit { background-size: 100% 0.66em; }
+
+/* Readers who ask for less motion still get the highlight, just not the wipe. */
+@media (prefers-reduced-motion: reduce) {
+  .markdown-body strong.figure { transition: none; }
+}
 
 .markdown-body a {
   color: var(--market);
