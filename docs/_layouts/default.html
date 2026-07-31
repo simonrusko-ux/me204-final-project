@@ -47,11 +47,11 @@
       return;
     }
 
-    var seen = new IntersectionObserver(function (entries, obs) {
+    var seen = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-lit');
-        obs.unobserve(entry.target);   // light once; do not flicker on scroll back
+        // Toggled, not added once: scrolling back up unpaints the stroke the
+        // same way it was painted.
+        entry.target.classList.toggle('is-lit', entry.isIntersecting);
       });
     }, { rootMargin: '0px 0px -20% 0px', threshold: 0.9 });
 

@@ -19,7 +19,7 @@
   --rule:   #e5ded4;   /* hairlines and grid                     */
   --market: #0f5499;   /* S&P 500 series, and every link         */
   --claret: #990f3d;   /* savings series                         */
-  --highlight: rgba(255, 204, 77, 0.62);   /* marker pen over the figures */
+  --highlight: rgba(255, 213, 0, 0.85);    /* marker pen over the figures */
 
   --serif: Georgia, "Times New Roman", serif;
   --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -148,7 +148,18 @@ body {
 
 /* --- Body ---------------------------------------------------------------- */
 
-.markdown-body p { margin: 0 auto 1.25rem; }
+/* Justified, with hyphenation on: without it the browser can only stretch the
+   word spaces, which opens rivers of white down a narrow column. */
+.markdown-body p {
+  margin: 0 auto 1.25rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* The byline and the closing source line are single lines, not prose. */
+.markdown-body h1 + p,
+.markdown-body hr + p { text-align: inherit; hyphens: none; }
+.markdown-body hr + p { text-align: center; }
 
 /* A paragraph that is entirely bold is the standing question, not emphasis:
    set it as a pull quote in the heading face. */
