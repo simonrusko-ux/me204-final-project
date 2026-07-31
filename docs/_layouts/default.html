@@ -27,9 +27,9 @@
        stroke without also turning bold. -->
   <script>
   (function () {
-    // A run of digits, optionally with a currency sign or a percent sign.
+    // A run of digits, optionally signed, with a currency sign or a percent sign.
     var isFigure = function (text) {
-      return /^[$£€]?\d[\d.,]*\s*%?$/.test(text.trim());
+      return /^[-+\u2212]?[$£€]?\d[\d.,]*\s*%?$/.test(text.trim());
     };
 
     var marks = [];

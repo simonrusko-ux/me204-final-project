@@ -37,7 +37,18 @@ contrast, did not fall in a single month out of a hundred and twenty.
 <!-- If the interactive chart above does not load, replace the iframe with:
      ![Value of $1,000 invested](finding1-growth.png) -->
 
-## Finding 2 — the market won 7 years out of 9, not 9 out of 9
+## Finding 2 — the market won 7 years out of 9
+
+*Disclosure: only the nine complete calendar years are compared here. The window
+opens in August 2016 and closes in July 2026, so those two years hold five and
+seven months, and a five-month year cannot be set against a full one.*
+
+Across the nine years, the market finished ahead in **7**. It lost money in 2018,
+at **-3.64%**, and again in 2022, at **-16.31%**, and in both of those years the
+savings account was the better place to have been. The margins are nowhere near
+equal, though: in its seven winning years the market returned between **14.01%**
+and **28.30%**, while the savings account's best year was **0.52%**.
+<mark>Losing twice cost far less than winning seven times gained.</mark>
 
 <iframe src="finding2-by-year.html" width="100%" height="565" frameborder="0"
         scrolling="no" style="border:0;"
