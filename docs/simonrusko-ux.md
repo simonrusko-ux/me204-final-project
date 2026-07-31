@@ -26,8 +26,8 @@ drawdown, but the market still finished far ahead of the savings account.
 
 However, those falls were not small. The $1,000 stood at $1,511 in February 2020 
 and at $1,223 a month later, and it did not climb back above that level until August.
-From a peak of $2,155 in December 2021 it slid to $1,717 by October 2022 — a
-fifth of its value — and stayed down for most of a year. The savings line, by
+From a peak of $2,155 in December 2021 it slid to $1,717 by October 2022 —
+**a fifth of its value** — and stayed down for most of a year. The savings line, by
 contrast, did not fall in a single month out of a hundred and twenty.
 
 <iframe src="finding1-growth.html" width="100%" height="525" frameborder="0"

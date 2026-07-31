@@ -21,22 +21,16 @@
     {{ content }}
   </main>
 
-  <!-- Marks every bold figure in the text and lights it as it scrolls into
-       view. Doing it here rather than in the markdown keeps the writing free of
-       markup, and means a figure added later is picked up automatically. -->
+  <!-- Lights every bold run in the text as it scrolls into view. Bold in the
+       markdown is the switch, so nothing else has to be marked up, and anything
+       written later is picked up automatically. -->
   <script>
   (function () {
-    // A run of digits, optionally with a currency sign or a percent sign.
-    var isFigure = function (text) {
-      return /^[$£€]?\d[\d.,]*\s*%?$/.test(text.trim());
-    };
-
     var marks = [];
     document.querySelectorAll('.markdown-body strong').forEach(function (el) {
       var p = el.parentElement;
       // Skip the standing question, which is a whole paragraph set in bold.
       if (p.tagName === 'P' && p.textContent.trim() === el.textContent.trim()) return;
-      if (!isFigure(el.textContent)) return;
       el.classList.add('figure');
       marks.push(el);
     });
