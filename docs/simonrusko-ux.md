@@ -30,12 +30,12 @@ and at $1,223 a month later, and it did not climb back above that level until Au
 — a fifth of its value — and stayed down for most of a year. The savings line, by
 contrast, did not fall in a single month out of a hundred and twenty.</mark>
 
-<iframe src="finding1-growth.html" width="100%" height="525" frameborder="0"
+<iframe src="figures/finding1-growth.html" width="100%" height="525" frameborder="0"
         scrolling="no" style="border:0;"
         title="Value of $1,000 invested, 2016 to 2026"></iframe>
 
 <!-- If the interactive chart above does not load, replace the iframe with:
-     ![Value of $1,000 invested](finding1-growth.png) -->
+     ![Value of $1,000 invested](figures/finding1-growth.png) -->
 
 ## Finding 2 — the market won 7 years out of 9
 
@@ -50,12 +50,12 @@ equal, though: in its seven winning years the market returned between **14.01%**
 and **28.30%**, while the savings account's best year was **0.52%**.
 <mark>Losing twice cost far less than winning seven times gained.</mark>
 
-<iframe src="finding2-by-year.html" width="100%" height="565" frameborder="0"
+<iframe src="figures/finding2-by-year.html" width="100%" height="565" frameborder="0"
         scrolling="no" style="border:0;"
         title="Return by calendar year, 2017 to 2025"></iframe>
 
 <!-- If the interactive chart above does not load, replace the iframe with:
-     ![Return by calendar year](finding2-by-year.png) -->
+     ![Return by calendar year](figures/finding2-by-year.png) -->
 
 
 

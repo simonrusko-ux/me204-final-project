@@ -69,10 +69,10 @@ NB03 is a notebook and is opened from `scripts/`, which is why its paths start
 | --- | --- | --- | --- |
 | `scripts/NB01-Data-Collection.py` | FRED API | one request per series, fixed date window | `data/raw/SP500.json`, `data/raw/BRMSA0104.json` |
 | `scripts/NB02-Data-Transformation.py` | `data/raw/*.json` | drops FRED's `"."` missing markers, averages each series by month, converts both to a monthly return in percent | `data/processed/monthly_returns.csv` |
-| `scripts/NB03-simonrusko-ux-Data-Analysis.ipynb` | `data/processed/monthly_returns.csv` | compounds the returns, compares by calendar year, builds the two charts | `docs/finding1-growth.{html,png}`, `docs/finding2-by-year.{html,png}` |
+| `scripts/NB03-simonrusko-ux-Data-Analysis.ipynb` | `data/processed/monthly_returns.csv` | compounds the returns, compares by calendar year, builds the two charts | `docs/figures/finding1-growth.{html,png}`, `docs/figures/finding2-by-year.{html,png}` |
 
 
-Rerunning NB03 overwrites the four chart files under `docs/`, which is how the
+Rerunning NB03 overwrites the four chart files under `docs/figures/`, which is how the
 published page is kept in step with the analysis. The site itself is served by
 GitHub Pages from `main` → `/docs`.
 
